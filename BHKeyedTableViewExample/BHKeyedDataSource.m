@@ -37,8 +37,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (void)addSection:(NSString *)sectionKey withRows:(NSArray *)rowKeys
 {
-    NSParameterAssert(sectionKey);
-    [self.sectionKeys addObject:sectionKey];
+    [self addSection:sectionKey];
 
     [rowKeys enumerateObjectsUsingBlock:^(NSString *rowKey, NSUInteger idx, BOOL *stop) {
         [self addRow:rowKey inSection:sectionKey];
@@ -47,8 +46,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (void)insertSection:(NSString *)sectionKey atIndex:(NSUInteger)index withRows:(NSArray *)rowKeys
 {
-    NSParameterAssert(sectionKey);
-    [self.sectionKeys insertObject:sectionKey atIndex:index];
+    [self insertSection:sectionKey atIndex:index];
 
     [rowKeys enumerateObjectsUsingBlock:^(NSString *rowKey, NSUInteger idx, BOOL *stop) {
         [self addRow:rowKey inSection:sectionKey];
@@ -57,13 +55,13 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (void)addSection:(NSString *)sectionKey
 {
-    NSParameterAssert(sectionKey);
-    [self.sectionKeys addObject:sectionKey];
+    [self insertSection:sectionKey atIndex:self.sectionKeys.count];
 }
 
 - (void)insertSection:(NSString *)sectionKey atIndex:(NSUInteger)index
 {
     NSParameterAssert(sectionKey);
+    NSAssert([self.sectionKeys containsObject:sectionKey] == NO, @"Section key already exists: %@", sectionKey);
     [self.sectionKeys insertObject:sectionKey atIndex:index];
 }
 
@@ -80,6 +78,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (NSUInteger)indexForSection:(NSString *)sectionKey
 {
+    NSParameterAssert(sectionKey);
     return [self.sectionKeys indexOfObject:sectionKey];
 }
 
@@ -100,6 +99,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
         self.rowKeysBySection[sectionKey] = rowKeys;
     }
 
+    NSAssert([rowKeys containsObject:rowKey] == NO, @"Row key: %@ already exists in section: %@", rowKey, sectionKey);
     [rowKeys insertObject:rowKey atIndex:index];
 }
 
@@ -122,6 +122,9 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (NSUInteger)indexForRow:(NSString *)rowKey inSection:(NSString *)sectionKey
 {
+    NSParameterAssert(rowKey);
+    NSParameterAssert(sectionKey);
+
     NSMutableOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
     return [rowKeys indexOfObject:rowKey];
 }
