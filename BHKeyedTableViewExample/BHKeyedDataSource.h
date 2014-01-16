@@ -15,6 +15,9 @@ extern NSString * BHKeyedDataSourceRowKey;
 
 // TableView Content
 
+- (void)addSection:(NSString *)sectionKey withRows:(NSArray *)rowKeys;
+- (void)insertSection:(NSString *)sectionKey atIndex:(NSUInteger)index withRows:(NSArray *)rowKeys;
+
 - (void)addSection:(NSString *)sectionKey;
 - (void)insertSection:(NSString *)sectionKey atIndex:(NSUInteger)index;
 - (void)removeSection:(NSString *)sectionKey;

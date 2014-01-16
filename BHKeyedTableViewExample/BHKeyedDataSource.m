@@ -35,6 +35,26 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 #pragma mark - TableView Content
 
+- (void)addSection:(NSString *)sectionKey withRows:(NSArray *)rowKeys
+{
+    NSParameterAssert(sectionKey);
+    [self.sectionKeys addObject:sectionKey];
+
+    [rowKeys enumerateObjectsUsingBlock:^(NSString *rowKey, NSUInteger idx, BOOL *stop) {
+        [self addRow:rowKey inSection:sectionKey];
+    }];
+}
+
+- (void)insertSection:(NSString *)sectionKey atIndex:(NSUInteger)index withRows:(NSArray *)rowKeys
+{
+    NSParameterAssert(sectionKey);
+    [self.sectionKeys insertObject:sectionKey atIndex:index];
+
+    [rowKeys enumerateObjectsUsingBlock:^(NSString *rowKey, NSUInteger idx, BOOL *stop) {
+        [self addRow:rowKey inSection:sectionKey];
+    }];
+}
+
 - (void)addSection:(NSString *)sectionKey
 {
     NSParameterAssert(sectionKey);
