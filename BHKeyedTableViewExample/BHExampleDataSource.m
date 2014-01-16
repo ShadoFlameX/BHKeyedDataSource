@@ -11,6 +11,7 @@
 NSString * const NameSection = @"Name";
 NSString * const AddressSection = @"Address";
 NSString * const ContactSection = @"Contact";
+NSString * const MoreSection = @"More";
 
 static NSString * const FirstNameRow = @"FirstName";
 static NSString * const MiddleNameRow = @"MiddleName";
@@ -51,6 +52,7 @@ static NSString * const CellIdentifier = @"Cell";
     if (self) {
         [self addSection:NameSection withRows:@[FirstNameRow, MiddleNameRow, LastNameRow]];
         [self addSection:ContactSection withRows:@[EmailRow, PhoneRow]];
+        [self addSection:MoreSection];
 
         self.showAddressSection = YES;
     }
@@ -58,6 +60,16 @@ static NSString * const CellIdentifier = @"Cell";
 }
 
 #pragma mark - TableView Content
+
+- (NSInteger)numberOfRowsInSection:(NSString *)sectionKey
+{
+    if ([sectionKey isEqualToString:MoreSection]) {
+        return self.moreItems.count;
+
+    } else {
+        return [super numberOfRowsInSection:sectionKey];
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey inSection:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath;
 {
@@ -105,6 +117,11 @@ static NSString * const CellIdentifier = @"Cell";
             cell.textLabel.text = @"Phone";
             cell.detailTextLabel.text = @"800-555-1212";
         }
+    }
+
+    if ([sectionKey isEqualToString:MoreSection]) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%d", indexPath.row +1];
+        cell.detailTextLabel.text = self.moreItems[indexPath.row];
     }
 
     return cell;

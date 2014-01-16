@@ -30,6 +30,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Toggle" style:UIBarButtonItemStylePlain target:self action:@selector(toggleAddress)];
 
     self.dataSource = [[BHExampleDataSource alloc] init];
+    self.dataSource.moreItems = @[@"Content", @"can", @"also", @"be", @"driven", @"by", @"data", @"collections"];
     self.tableView.dataSource = self.dataSource;
 }
 

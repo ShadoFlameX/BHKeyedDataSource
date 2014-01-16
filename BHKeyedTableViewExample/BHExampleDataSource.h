@@ -11,9 +11,11 @@
 extern NSString * const NameSection;
 extern NSString * const AddressSection;
 extern NSString * const ContactSection;
+extern NSString * const MoreSection;
 
 @interface BHExampleDataSource : BHKeyedDataSource
 
+@property (copy, nonatomic) NSArray *moreItems;
 @property (assign, nonatomic) BOOL showAddressSection;
 
 @end
