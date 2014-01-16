@@ -8,6 +8,10 @@
 
 #import "BHKeyedDataSource.h"
 
+NSString * BHKeyedDataSourceSectionKey = @"section";
+NSString * BHKeyedDataSourceRowKey = @"row";
+
+
 @interface BHKeyedDataSource ()
 
 @property (strong, nonatomic, readonly) NSMutableOrderedSet *sectionKeys;
@@ -91,6 +95,15 @@
     [rowKeys removeAllObjects];
 }
 
+- (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *sectionKey = self.sectionKeys[indexPath.section];
+    NSString *rowKey = ((NSOrderedSet *)self.rowKeysBySection[sectionKey])[indexPath.row];
+
+    return @{BHKeyedDataSourceRowKey: rowKey,
+             BHKeyedDataSourceSectionKey: sectionKey};
+}
+
 - (NSInteger)numberOfRowsInSection:(NSString *)sectionKey
 {
     NSParameterAssert(sectionKey);
@@ -99,9 +112,9 @@
     return rowKeys.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowKey:(NSString *)rowKey sectionKey:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey section:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath
 {
-    NSAssert(NO, @"BHKeyedDataSource subclass must implement tableView:cellForRowKey:sectionKey:");
+    NSAssert(NO, @"BHKeyedDataSource subclass must implement tableView:cellForRowKey:sectionKey:atIndexPath:");
     return nil;
 }
 
@@ -120,10 +133,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *sectionKey = self.sectionKeys[indexPath.section];
-    NSString *rowKey = ((NSOrderedSet *)self.rowKeysBySection[sectionKey])[indexPath.row];
+    NSDictionary *sectionInfo = [self sectionInfoForIndexPath:indexPath];
 
-    return [self tableView:tableView cellForRowKey:rowKey sectionKey:sectionKey atIndexPath:indexPath];
+    return [self tableView:tableView cellForRow:sectionInfo[BHKeyedDataSourceRowKey]
+                   section:sectionInfo[BHKeyedDataSourceSectionKey]
+               atIndexPath:indexPath];
 }
 
 @end

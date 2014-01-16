@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * BHKeyedDataSourceSectionKey;
+extern NSString * BHKeyedDataSourceRowKey;
+
 @interface BHKeyedDataSource : NSObject <UITableViewDataSource>
 
 // TableView Content
@@ -22,8 +25,10 @@
 - (void)removeRow:(NSString *)rowKey inSection:(NSString *)sectionKey;
 - (void)removeAllRowsInSection:(NSString *)sectionKey;
 
+- (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath;
+
 - (NSInteger)numberOfRowsInSection:(NSString *)sectionKey;
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowKey:(NSString *)rowKey sectionKey:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey section:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath;
 
 @end
