@@ -78,6 +78,11 @@ NSString * BHKeyedDataSourceRowKey = @"row";
     [self.sectionKeys removeAllObjects];
 }
 
+- (NSUInteger)indexForSection:(NSString *)sectionKey
+{
+    return [self.sectionKeys indexOfObject:sectionKey];
+}
+
 - (void)addRow:(NSString *)rowKey inSection:(NSString *)sectionKey
 {
     NSUInteger index = ((NSMutableOrderedSet *)self.rowKeysBySection[sectionKey]).count;
@@ -113,6 +118,12 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
     NSMutableOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
     [rowKeys removeAllObjects];
+}
+
+- (NSUInteger)indexForRow:(NSString *)rowKey inSection:(NSString *)sectionKey
+{
+    NSMutableOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
+    return [rowKeys indexOfObject:rowKey];
 }
 
 - (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath

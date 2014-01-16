@@ -26,16 +26,35 @@ static NSString * const CellIdentifier = @"Cell";
 
 @implementation BHExampleDataSource
 
+#pragma mark - Properties
+
+- (void)setShowContactSection:(BOOL)showContactSection
+{
+    if (_showContactSection == showContactSection) return;
+
+    _showContactSection = showContactSection;
+
+    if (_showContactSection) {
+        [self insertSection:ContactSection atIndex:1 withRows:@[EmailRow, PhoneRow]];
+
+    } else {
+        [self insertSection:ContactSection atIndex:1 withRows:@[EmailRow, PhoneRow]];
+    }
+}
+
+#pragma mark - Alloc/Init
+
 - (id)init
 {
     self = [super init];
     if (self) {
         [self addSection:NameSection withRows:@[FirstNameRow, MiddleNameRow, LastNameRow]];
         [self addSection:AddressSection withRows:@[StreetRow, CityRow, StateRow]];
-        [self addSection:ContactSection withRows:@[EmailRow, PhoneRow]];
     }
     return self;
 }
+
+#pragma mark - TableView Content
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey inSection:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath;
 {
