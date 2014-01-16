@@ -170,8 +170,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSMutableOrderedSet *rowKeys = self.rowKeysBySection[self.sectionKeys[section]];
-    return rowKeys.count;
+    return [self numberOfRowsInSection:self.sectionKeys[section]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
