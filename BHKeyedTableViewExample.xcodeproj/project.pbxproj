@@ -15,7 +15,6 @@
 		0D0BB7F11887DBA400FE8D2B /* BHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB7F01887DBA400FE8D2B /* BHAppDelegate.m */; };
 		0D0BB7F41887DBA400FE8D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BB7F21887DBA400FE8D2B /* Main.storyboard */; };
 		0D0BB7F71887DBA400FE8D2B /* BHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB7F61887DBA400FE8D2B /* BHMasterViewController.m */; };
-		0D0BB7FA1887DBA400FE8D2B /* BHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB7F91887DBA400FE8D2B /* BHDetailViewController.m */; };
 		0D0BB7FC1887DBA400FE8D2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BB7FB1887DBA400FE8D2B /* Images.xcassets */; };
 		0D0BB8031887DBA400FE8D2B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0BB8021887DBA400FE8D2B /* XCTest.framework */; };
 		0D0BB8041887DBA400FE8D2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0BB7E01887DBA400FE8D2B /* Foundation.framework */; };
@@ -50,8 +49,6 @@
 		0D0BB7F31887DBA400FE8D2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D0BB7F51887DBA400FE8D2B /* BHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHMasterViewController.h; sourceTree = "<group>"; };
 		0D0BB7F61887DBA400FE8D2B /* BHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHMasterViewController.m; sourceTree = "<group>"; };
-		0D0BB7F81887DBA400FE8D2B /* BHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BHDetailViewController.h; sourceTree = "<group>"; };
-		0D0BB7F91887DBA400FE8D2B /* BHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHDetailViewController.m; sourceTree = "<group>"; };
 		0D0BB7FB1887DBA400FE8D2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D0BB8011887DBA400FE8D2B /* BHKeyedTableViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BHKeyedTableViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0BB8021887DBA400FE8D2B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -174,8 +171,6 @@
 			children = (
 				0D0BB7F51887DBA400FE8D2B /* BHMasterViewController.h */,
 				0D0BB7F61887DBA400FE8D2B /* BHMasterViewController.m */,
-				0D0BB7F81887DBA400FE8D2B /* BHDetailViewController.h */,
-				0D0BB7F91887DBA400FE8D2B /* BHDetailViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -309,7 +304,6 @@
 				0D0BB7F71887DBA400FE8D2B /* BHMasterViewController.m in Sources */,
 				0D0BB7ED1887DBA400FE8D2B /* main.m in Sources */,
 				0D0BB8221887DD2200FE8D2B /* BHExampleDataSource.m in Sources */,
-				0D0BB7FA1887DBA400FE8D2B /* BHDetailViewController.m in Sources */,
 				0D0BB81B1887DBBE00FE8D2B /* BHKeyedDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

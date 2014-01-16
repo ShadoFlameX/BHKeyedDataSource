@@ -7,7 +7,6 @@
 //
 
 #import "BHMasterViewController.h"
-#import "BHDetailViewController.h"
 #import "BHExampleDataSource.h"
 
 @interface BHMasterViewController ()
