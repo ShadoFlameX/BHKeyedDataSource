@@ -8,8 +8,12 @@
 
 #import "BHKeyedDataSource.h"
 
+extern NSString * const NameSection;
+extern NSString * const AddressSection;
+extern NSString * const ContactSection;
+
 @interface BHExampleDataSource : BHKeyedDataSource
 
-@property (assign, nonatomic) BOOL showContactSection;
+@property (assign, nonatomic) BOOL showAddressSection;
 
 @end
