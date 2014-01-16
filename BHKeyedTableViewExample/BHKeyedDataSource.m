@@ -68,12 +68,15 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 - (void)removeSection:(NSString *)sectionKey
 {
     NSParameterAssert(sectionKey);
+    NSAssert([self.sectionKeys containsObject:sectionKey], @"Section key does not exist: %@", sectionKey);
     [self.sectionKeys removeObject:sectionKey];
+    [self.rowKeysBySection removeObjectForKey:sectionKey];
 }
 
 - (void)removeAllSections
 {
     [self.sectionKeys removeAllObjects];
+    [self.rowKeysBySection removeAllObjects];
 }
 
 - (NSUInteger)indexForSection:(NSString *)sectionKey
@@ -107,14 +110,17 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 {
     NSParameterAssert(rowKey);
     NSParameterAssert(sectionKey);
+    NSAssert([self.sectionKeys containsObject:sectionKey], @"Section key does not exist: %@", sectionKey);
 
     NSMutableOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
+    NSAssert([rowKeys containsObject:rowKey], @"Row key: %@ does not exist in section: %@", rowKey, sectionKey);
     [rowKeys removeObject:sectionKey];
 }
 
 - (void)removeAllRowsInSection:(NSString *)sectionKey
 {
     NSParameterAssert(sectionKey);
+    NSAssert([self.sectionKeys containsObject:sectionKey], @"Section key does not exist: %@", sectionKey);
 
     NSMutableOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
     [rowKeys removeAllObjects];
