@@ -75,7 +75,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
         self.rowKeysBySection[sectionKey] = rowKeys;
     }
 
-    [rowKeys addObject:rowKey];
+    [rowKeys insertObject:rowKey atIndex:index];
 }
 
 - (void)removeRow:(NSString *)rowKey inSection:(NSString *)sectionKey
