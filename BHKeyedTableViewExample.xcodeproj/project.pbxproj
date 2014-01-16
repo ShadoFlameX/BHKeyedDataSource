@@ -23,6 +23,7 @@
 		0D0BB80D1887DBA400FE8D2B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BB80B1887DBA400FE8D2B /* InfoPlist.strings */; };
 		0D0BB80F1887DBA400FE8D2B /* BHKeyedTableViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB80E1887DBA400FE8D2B /* BHKeyedTableViewExampleTests.m */; };
 		0D0BB81B1887DBBE00FE8D2B /* BHKeyedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB81A1887DBBE00FE8D2B /* BHKeyedDataSource.m */; };
+		0D0BB8221887DD2200FE8D2B /* BHExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB8211887DD2200FE8D2B /* BHExampleDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		0D0BB80E1887DBA400FE8D2B /* BHKeyedTableViewExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BHKeyedTableViewExampleTests.m; sourceTree = "<group>"; };
 		0D0BB8191887DBBE00FE8D2B /* BHKeyedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHKeyedDataSource.h; sourceTree = "<group>"; };
 		0D0BB81A1887DBBE00FE8D2B /* BHKeyedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHKeyedDataSource.m; sourceTree = "<group>"; };
+		0D0BB8201887DD2200FE8D2B /* BHExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHExampleDataSource.h; sourceTree = "<group>"; };
+		0D0BB8211887DD2200FE8D2B /* BHExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHExampleDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 		0D0BB81E1887DCD400FE8D2B /* Example Data Source */ = {
 			isa = PBXGroup;
 			children = (
+				0D0BB8201887DD2200FE8D2B /* BHExampleDataSource.h */,
+				0D0BB8211887DD2200FE8D2B /* BHExampleDataSource.m */,
 			);
 			name = "Example Data Source";
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				0D0BB7F11887DBA400FE8D2B /* BHAppDelegate.m in Sources */,
 				0D0BB7F71887DBA400FE8D2B /* BHMasterViewController.m in Sources */,
 				0D0BB7ED1887DBA400FE8D2B /* main.m in Sources */,
+				0D0BB8221887DD2200FE8D2B /* BHExampleDataSource.m in Sources */,
 				0D0BB7FA1887DBA400FE8D2B /* BHDetailViewController.m in Sources */,
 				0D0BB81B1887DBBE00FE8D2B /* BHKeyedDataSource.m in Sources */,
 			);
