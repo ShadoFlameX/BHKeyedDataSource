@@ -47,4 +47,18 @@
     }
 }
 
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *sectionInfo = [self.dataSource sectionInfoForIndexPath:indexPath];
+
+    if ([sectionInfo[BHKeyedDataSourceSectionKey] isEqualToString:HeaderSection]) {
+        return 90.0f;
+
+    } else {
+        return 44.0f;
+    }
+}
+
 @end

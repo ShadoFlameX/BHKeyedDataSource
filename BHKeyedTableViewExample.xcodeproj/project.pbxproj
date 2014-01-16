@@ -23,6 +23,8 @@
 		0D0BB80F1887DBA400FE8D2B /* BHKeyedTableViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB80E1887DBA400FE8D2B /* BHKeyedTableViewExampleTests.m */; };
 		0D0BB81B1887DBBE00FE8D2B /* BHKeyedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB81A1887DBBE00FE8D2B /* BHKeyedDataSource.m */; };
 		0D0BB8221887DD2200FE8D2B /* BHExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB8211887DD2200FE8D2B /* BHExampleDataSource.m */; };
+		0D0BB8281888000000FE8D2B /* BHImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BB8271888000000FE8D2B /* BHImageCell.m */; };
+		0D0BB82A1888007A00FE8D2B /* header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D0BB8291888007A00FE8D2B /* header.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,9 @@
 		0D0BB81A1887DBBE00FE8D2B /* BHKeyedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHKeyedDataSource.m; sourceTree = "<group>"; };
 		0D0BB8201887DD2200FE8D2B /* BHExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHExampleDataSource.h; sourceTree = "<group>"; };
 		0D0BB8211887DD2200FE8D2B /* BHExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHExampleDataSource.m; sourceTree = "<group>"; };
+		0D0BB8261888000000FE8D2B /* BHImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHImageCell.h; sourceTree = "<group>"; };
+		0D0BB8271888000000FE8D2B /* BHImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHImageCell.m; sourceTree = "<group>"; };
+		0D0BB8291888007A00FE8D2B /* header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,7 @@
 				0D0BB81F1887DCE200FE8D2B /* Resources */,
 				0D0BB7E71887DBA400FE8D2B /* Supporting Files */,
 				0D0BB81C1887DCC100FE8D2B /* View Controllers */,
+				0D0BB8251887FFE800FE8D2B /* Views */,
 			);
 			path = BHKeyedTableViewExample;
 			sourceTree = "<group>";
@@ -196,10 +202,20 @@
 		0D0BB81F1887DCE200FE8D2B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0D0BB8291888007A00FE8D2B /* header.jpg */,
 				0D0BB7FB1887DBA400FE8D2B /* Images.xcassets */,
 				0D0BB7F21887DBA400FE8D2B /* Main.storyboard */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		0D0BB8251887FFE800FE8D2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D0BB8261888000000FE8D2B /* BHImageCell.h */,
+				0D0BB8271888000000FE8D2B /* BHImageCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +297,7 @@
 			files = (
 				0D0BB7FC1887DBA400FE8D2B /* Images.xcassets in Resources */,
 				0D0BB7EB1887DBA400FE8D2B /* InfoPlist.strings in Resources */,
+				0D0BB82A1888007A00FE8D2B /* header.jpg in Resources */,
 				0D0BB7F41887DBA400FE8D2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0BB7F11887DBA400FE8D2B /* BHAppDelegate.m in Sources */,
+				0D0BB8281888000000FE8D2B /* BHImageCell.m in Sources */,
 				0D0BB7F71887DBA400FE8D2B /* BHMasterViewController.m in Sources */,
 				0D0BB7ED1887DBA400FE8D2B /* main.m in Sources */,
 				0D0BB8221887DD2200FE8D2B /* BHExampleDataSource.m in Sources */,

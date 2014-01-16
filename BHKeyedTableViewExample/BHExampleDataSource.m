@@ -7,11 +7,15 @@
 //
 
 #import "BHExampleDataSource.h"
+#import "BHImageCell.h"
 
+NSString * const HeaderSection = @"Header";
 NSString * const NameSection = @"Name";
 NSString * const AddressSection = @"Address";
 NSString * const ContactSection = @"Contact";
 NSString * const MoreSection = @"More";
+
+static NSString * const PhotoRow = @"Photo";
 
 static NSString * const FirstNameRow = @"FirstName";
 static NSString * const MiddleNameRow = @"MiddleName";
@@ -24,6 +28,7 @@ static NSString * const StateRow = @"State";
 static NSString * const EmailRow = @"Email";
 static NSString * const PhoneRow = @"Phone";
 
+static NSString * const HeaderCellIdentifier = @"HeaderCell";
 static NSString * const CellIdentifier = @"Cell";
 
 @implementation BHExampleDataSource
@@ -50,6 +55,7 @@ static NSString * const CellIdentifier = @"Cell";
 {
     self = [super init];
     if (self) {
+        [self addSection:HeaderSection withRows:@[PhoneRow]];
         [self addSection:NameSection withRows:@[FirstNameRow, MiddleNameRow, LastNameRow]];
         [self addSection:ContactSection withRows:@[EmailRow, PhoneRow]];
         [self addSection:MoreSection];
@@ -73,12 +79,23 @@ static NSString * const CellIdentifier = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey inSection:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath;
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+    UITableViewCell *cell = nil;
+
+    if ([sectionKey isEqualToString:HeaderSection]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:HeaderCellIdentifier];
+        if (cell == nil) {
+            cell = [[BHImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HeaderCellIdentifier];
+        }
+
+        cell.imageView.image = [UIImage imageNamed:@"header.jpg"];
     }
 
     if ([sectionKey isEqualToString:NameSection]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+        }
+
         if ([rowKey isEqualToString:FirstNameRow]) {
             cell.textLabel.text = @"First Name";
             cell.detailTextLabel.text = @"Bryan";
@@ -94,6 +111,11 @@ static NSString * const CellIdentifier = @"Cell";
     }
 
     if ([sectionKey isEqualToString:AddressSection]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+        }
+
         if ([rowKey isEqualToString:StreetRow]) {
             cell.textLabel.text = @"Street";
             cell.detailTextLabel.text = @"123 Oak St";
@@ -109,6 +131,11 @@ static NSString * const CellIdentifier = @"Cell";
     }
 
     if ([sectionKey isEqualToString:ContactSection]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+        }
+
         if ([rowKey isEqualToString:EmailRow]) {
             cell.textLabel.text = @"Email";
             cell.detailTextLabel.text = @"bryanehansen@gmail.com";
@@ -120,6 +147,11 @@ static NSString * const CellIdentifier = @"Cell";
     }
 
     if ([sectionKey isEqualToString:MoreSection]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+        }
+
         cell.textLabel.text = [NSString stringWithFormat:@"%d", indexPath.row +1];
         cell.detailTextLabel.text = self.moreItems[indexPath.row];
     }

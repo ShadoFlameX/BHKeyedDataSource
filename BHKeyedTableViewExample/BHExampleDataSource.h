@@ -8,6 +8,7 @@
 
 #import "BHKeyedDataSource.h"
 
+extern NSString * const HeaderSection;
 extern NSString * const NameSection;
 extern NSString * const AddressSection;
 extern NSString * const ContactSection;
