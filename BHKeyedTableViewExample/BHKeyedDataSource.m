@@ -135,8 +135,16 @@ NSString * BHKeyedDataSourceRowKey = @"row";
     return [rowKeys indexOfObject:rowKey];
 }
 
+- (NSString *)sectionForSectionIndex:(NSInteger)sectionIndex
+{
+    NSAssert(sectionIndex < self.sectionKeys.count, @"Invalid section for sectionIndex");
+    return self.sectionKeys[sectionIndex];
+}
+
 - (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath
 {
+    NSAssert(indexPath.section < self.sectionKeys.count, @"Invalid section for indexPath");
+
     NSString *sectionKey = self.sectionKeys[indexPath.section];
     NSOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
     NSString *rowKey = indexPath.row < rowKeys.count ? rowKeys[indexPath.row] : nil;

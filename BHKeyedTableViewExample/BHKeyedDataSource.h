@@ -30,6 +30,7 @@ extern NSString * BHKeyedDataSourceRowKey;
 - (void)removeAllRowsInSection:(NSString *)sectionKey;
 - (NSUInteger)indexForRow:(NSString *)rowKey inSection:(NSString *)sectionKey;
 
+- (NSString *)sectionForSectionIndex:(NSInteger)sectionIndex;
 - (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath;
 
 - (NSInteger)numberOfRowsInSection:(NSString *)sectionKey;
