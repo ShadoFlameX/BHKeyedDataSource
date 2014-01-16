@@ -138,7 +138,8 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 - (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath
 {
     NSString *sectionKey = self.sectionKeys[indexPath.section];
-    NSString *rowKey = ((NSOrderedSet *)self.rowKeysBySection[sectionKey])[indexPath.row];
+    NSOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
+    NSString *rowKey = indexPath.row < rowKeys.count ? rowKeys[indexPath.row] : nil;
 
     NSMutableDictionary *sectionInfo = [NSMutableDictionary dictionaryWithCapacity:2];
     sectionInfo[BHKeyedDataSourceSectionKey] = sectionKey;
