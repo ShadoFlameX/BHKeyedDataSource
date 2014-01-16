@@ -132,7 +132,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
     return rowKeys.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey section:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey inSection:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath
 {
     NSAssert(NO, @"BHKeyedDataSource subclass must implement tableView:cellForRowKey:sectionKey:atIndexPath:");
     return nil;
@@ -154,10 +154,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *sectionInfo = [self sectionInfoForIndexPath:indexPath];
-
-    return [self tableView:tableView cellForRow:sectionInfo[BHKeyedDataSourceRowKey]
-                   section:sectionInfo[BHKeyedDataSourceSectionKey]
-               atIndexPath:indexPath];
+    return [self tableView:tableView cellForRow:sectionInfo[BHKeyedDataSourceRowKey] inSection:sectionInfo[BHKeyedDataSourceSectionKey] atIndexPath:indexPath];
 }
 
 @end
