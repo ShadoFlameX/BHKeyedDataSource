@@ -79,12 +79,6 @@ NSString * BHKeyedDataSourceRowKey = @"row";
     [self.rowKeysBySection removeAllObjects];
 }
 
-- (NSUInteger)indexForSection:(NSString *)sectionKey
-{
-    NSParameterAssert(sectionKey);
-    return [self.sectionKeys indexOfObject:sectionKey];
-}
-
 - (void)addRow:(NSString *)rowKey inSection:(NSString *)sectionKey
 {
     NSUInteger index = ((NSMutableOrderedSet *)self.rowKeysBySection[sectionKey]).count;
@@ -126,13 +120,26 @@ NSString * BHKeyedDataSourceRowKey = @"row";
     [rowKeys removeAllObjects];
 }
 
-- (NSUInteger)indexForRow:(NSString *)rowKey inSection:(NSString *)sectionKey
+- (NSUInteger)indexForSection:(NSString *)sectionKey
+{
+    NSParameterAssert(sectionKey);
+    return [self.sectionKeys indexOfObject:sectionKey];
+}
+
+- (NSIndexPath *)indexPathForRow:(NSString *)rowKey inSection:(NSString *)sectionKey
 {
     NSParameterAssert(rowKey);
     NSParameterAssert(sectionKey);
+    NSAssert([self.sectionKeys containsObject:sectionKey], @"Section key does not exist: %@", sectionKey);
+
+    NSInteger sectionIndex = [self.sectionKeys indexOfObject:sectionKey];
 
     NSMutableOrderedSet *rowKeys = self.rowKeysBySection[sectionKey];
-    return [rowKeys indexOfObject:rowKey];
+    NSAssert([rowKeys containsObject:rowKey], @"Row key: %@ does not exist in section: %@", rowKey, sectionKey);
+
+    NSInteger rowIndex = [rowKeys indexOfObject:rowKey];
+
+    return [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
 }
 
 - (NSString *)sectionForSectionIndex:(NSInteger)sectionIndex

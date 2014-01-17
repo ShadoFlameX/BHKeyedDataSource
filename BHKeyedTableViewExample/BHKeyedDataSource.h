@@ -22,13 +22,14 @@ extern NSString * BHKeyedDataSourceRowKey;
 - (void)insertSection:(NSString *)sectionKey atIndex:(NSUInteger)index;
 - (void)removeSection:(NSString *)sectionKey;
 - (void)removeAllSections;
-- (NSUInteger)indexForSection:(NSString *)sectionKey;
 
 - (void)addRow:(NSString *)rowKey inSection:(NSString *)sectionKey;
 - (void)insertRow:(NSString *)rowKey atIndex:(NSUInteger)index inSection:(NSString *)sectionKey;
 - (void)removeRow:(NSString *)rowKey inSection:(NSString *)sectionKey;
 - (void)removeAllRowsInSection:(NSString *)sectionKey;
-- (NSUInteger)indexForRow:(NSString *)rowKey inSection:(NSString *)sectionKey;
+
+- (NSUInteger)indexForSection:(NSString *)sectionKey;
+- (NSIndexPath *)indexPathForRow:(NSString *)rowKey inSection:(NSString *)sectionKey;
 
 - (NSString *)sectionForSectionIndex:(NSInteger)sectionIndex;
 - (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath;
