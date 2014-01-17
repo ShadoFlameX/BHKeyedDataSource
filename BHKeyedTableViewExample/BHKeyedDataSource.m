@@ -163,7 +163,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
     return sectionInfo;
 }
 
-- (NSInteger)numberOfRowsInSection:(NSString *)sectionKey
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSectionWithKey:(NSString *)sectionKey
 {
     NSParameterAssert(sectionKey);
 
@@ -186,7 +186,7 @@ NSString * BHKeyedDataSourceRowKey = @"row";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self numberOfRowsInSection:self.sectionKeys[section]];
+    return [self tableView:tableView numberOfRowsInSectionWithKey:self.sectionKeys[section]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

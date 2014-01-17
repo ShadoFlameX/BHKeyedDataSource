@@ -34,7 +34,7 @@ extern NSString * BHKeyedDataSourceRowKey;
 - (NSString *)sectionForSectionIndex:(NSInteger)sectionIndex;
 - (NSDictionary *)sectionInfoForIndexPath:(NSIndexPath *)indexPath;
 
-- (NSInteger)numberOfRowsInSection:(NSString *)sectionKey;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSectionWithKey:(NSString *)sectionKey;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSString *)rowKey inSection:(NSString *)sectionKey atIndexPath:(NSIndexPath *)indexPath;
 
